@@ -1,37 +1,31 @@
-import { useReducer } from 'react'
+import { useReducer, } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
-import Ali from "./Home"
-import Project1 from "./Project1"
+import Search from './Search'
+import LandingPage from './LandingPage'
+import Header from './Header.tsx'
+import reducer, { initialState } from './AppReducer'
+import { AppStateContext, AppDispatchContext } from './AppContext.ts'
 
-const initialState = {
-  drawerIsOpen: false,
-  selectedFilterTags: [],
-}
-
-const reducer = (previousState, action) => {
-  switch (action.type) {
-    case 'TOGGLE_DRAWER':
-      return { ...previousState, drawerIsOpen: !previousState.drawerIsOpen }
-    case 'SET_FILTER_TAGS':
-      return { ...previousState, selectedFilterTags: action.payload }
-  }
-}
 
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, "0");
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Ali />}>
-          <Route path="/project1" index element={<Project1 />}/>
-          <Route path="/project2" index element={<h1>page a</h1>} />
-          <Route path="/project3" index element={<h1>page b</h1>} />
-          <Route path="/project4" index element={<h1>page c</h1>} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AppStateContext.Provider value={state} >
+    <AppDispatchContext.Provider value={dispatch} >
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/projects" element={<Header />}>
+            <Route path="/projects" index element={<Search />} />
+            <Route path="/projects/simon" index element={<iframe style={{ height: "90vh" }} src="../public/simon/index.html" />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AppDispatchContext.Provider>
+    </AppStateContext.Provider>
   )
 }
 
