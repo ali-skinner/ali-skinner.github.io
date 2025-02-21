@@ -5,18 +5,21 @@ import { useNavigate } from 'react-router';
 
 const projectCards = [
     {
+        id: "simon",
         title: "Let's Play Simon!",
         description: "Built interactive game with CSS and HTML",
         link: "/projects/simon"
     },
 
     {
+        id: "blackjack",
         title: "Blackjack",
         description: "Built interactive game with JavaScript, CSS and HTML",
         link: "/projects/blackjack"
     },
 
     {
+        id: "todo",
         title: "ToDo List App",
         description: "List app built with React",
         link: "/projects/todo"
