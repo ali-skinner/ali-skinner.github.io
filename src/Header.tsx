@@ -1,21 +1,25 @@
-import { Box } from "@mui/material";
+import { AppBar, Box, IconButton } from "@mui/material";
 import { Outlet } from "react-router";
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 export default function Header() {
 
     return (
-        <Box sx={{
-            width: "100vw",
-            height: "100vh",
-            display: "flex",
-            flexDirection: "column",
+        <Box>
+        <AppBar
+            sx={{
+                display: "flex",
+                flexDirection: "row",
 
-        }} >
-            <h1>Header</h1>
-            <Box>
+            }} >
+             {/* Make button bounce/update path/transitions*/}   
+            <IconButton aria-label="back arrow">
+                <ArrowCircleLeftIcon fontSize="large"/> 
+            </IconButton>
+            <h2>Header</h2>
+
+        </AppBar>
                 <Outlet />
             </Box>
-
-        </Box>
     )
 }
