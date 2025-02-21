@@ -1,6 +1,24 @@
-import { Box, Paper } from '@mui/material';
+import { Box, Card, CardActionArea, CardContent, Paper } from '@mui/material';
 
-const projectCards = [{}, {}];
+const projectCards = [
+    {
+        title: "Let's Play Simon!",
+        description: "Built interactive game with CSS and HTML",
+        link: "/projects/simon"
+    },
+
+    {
+        title: "Blackjack",
+        description: "Built interactive game with JavaScript, CSS and HTML",
+        link: "/projects/blackjack"
+    },
+
+    {
+        title: "ToDo List App",
+        description: "List app built with React",
+        link: "/projects/todo"
+    },
+];
 
 export default function Search() {
 
@@ -9,16 +27,16 @@ export default function Search() {
             sx={{
                 width: '100%',
                 height: '100%',
-                margin: 0,
+                margin:'10px',
                 padding: 0,
-                gap: "5px",
+                gap: "10px",
                 display: 'flex',
                 flexDirection: 'column',
                 overflow: 'auto',
                 alignItems: "center",
             }}
         >
-            <h1>Search Page</h1>
+            <h1>Project Search</h1>
             {projectCards.map((card) => {
 
                 return <ProjectCard {...card} />
@@ -28,17 +46,21 @@ export default function Search() {
     )
 }
 
-function ProjectCard() {
+function ProjectCard(onClick) {
 
     return (
-        <Paper
+        <Card
             sx={{
                 width: "200px",
                 height: "200px",
-
-
             }}>
+            <CardActionArea onClick={onClick} sx={{ height: "100%" }}>
+                <CardContent> </CardContent>
 
-        </Paper>
+
+            </CardActionArea>
+
+
+        </Card>
     )
 }

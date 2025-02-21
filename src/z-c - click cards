@@ -1,0 +1,56 @@
+import React from 'react';
+import { Card, CardContent, CardActionArea, Typography, Grid } from '@mui/material';
+
+const ProjectCard = ({ title, description, onClick }) => {
+  return (
+    <Card sx={{ height: '100%' }}>
+      <CardActionArea onClick={onClick} sx={{ height: '100%' }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+};
+
+const ProjectGrid = () => {
+  const projects = [
+    {
+      title: "E-commerce Website",
+      description: "Built a full-stack e-commerce site using React and Node.js",
+      link: "/projects/ecommerce"
+    },
+    {
+      title: "Weather App",
+      description: "Created a weather application using OpenWeather API",
+      link: "/projects/weather"
+    }
+  ];
+
+  const handleCardClick = (link) => {
+    // You can use React Router's navigate or window.location
+    console.log(`Navigating to: ${link}`);
+    // window.location.href = link;
+  };
+
+  return (
+    <Grid container spacing={3} sx={{ padding: 2 }}>
+      {projects.map((project, index) => (
+        <Grid item xs={12} sm={6} key={index}>
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            onClick={() => handleCardClick(project.link)}
+          />
+        </Grid>
+      ))}
+    </Grid>
+  );
+};
+
+export default ProjectGrid;
