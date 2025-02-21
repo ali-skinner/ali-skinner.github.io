@@ -1,4 +1,4 @@
-import { Box, Card, CardActionArea, CardContent, Paper } from '@mui/material';
+import { Box, Card, CardActionArea, CardContent, Paper, Typography } from '@mui/material';
 import { useNavigate } from 'react-router';
 
 
@@ -47,14 +47,22 @@ export default function Search() {
             <h1>Project Search</h1>
             {projectCards.map((card, index) => {
 
-                return <ProjectCard onClick={() => cardClickHandler(card.link)} {...card} />
+                return (
+                    <ProjectCard
+                        {...card}
+                        key={index}
+                        onClick={() => cardClickHandler(card.link)}
+                    // title={card.title}
+                    // description={card.description}
+                    />
+                )
             }
             )}
         </Box>
     )
 }
 
-function ProjectCard({ title, description, onClick}) {
+function ProjectCard({ title, description, onClick, }) {
 
 
     return (
@@ -65,8 +73,12 @@ function ProjectCard({ title, description, onClick}) {
             }}>
             <CardActionArea onClick={onClick} sx={{ height: "100%" }}>
                 <CardContent>
-                    {title}
-                    {description}
+                    <Typography variant='h5' component="div">
+                        {title}
+                    </Typography>
+                    <Typography>
+                        {description}
+                    </Typography>
                 </CardContent>
 
 

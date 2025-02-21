@@ -16,7 +16,7 @@ export default function Header() {
             <IconButton aria-label="back arrow">
                 <ArrowCircleLeftIcon fontSize="large"/> 
             </IconButton>
-            <h2>Header</h2>
+            <h2>Ali's Portfolio</h2>
 
         </AppBar>
                 <Outlet />
