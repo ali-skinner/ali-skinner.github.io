@@ -13,7 +13,7 @@ export default function Header() {
                 sx={{
                     display: "flex",
                     flexDirection: "row",
-                    padding: "10px",
+                    // padding: "8px",
                 }} >
                 {/* Make button bounce/update path/transitions*/}
                 {!onSearchPage && (
@@ -24,7 +24,7 @@ export default function Header() {
                         <ArrowCircleLeftIcon fontSize="large" />
                     </IconButton>
                 )}
-                <h2>Ali's Portfolio</h2>
+                <h2 style={{ margin: "20px" }}>Ali's Portfolio</h2>
 
             </AppBar>
             <Outlet />

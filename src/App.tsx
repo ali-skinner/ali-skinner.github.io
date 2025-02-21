@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/projects" element={<Header />}>
             <Route path="/projects" index element={<Search />} />
-            <Route path="/projects/simon" index element={<iframe style={{ height: "90vh", width: "100vw" }} src="../public/simon/index.html" />} />
+            <Route path="/projects/simon" index element={<iframe style={{ marginTop: "65px", height: "90vh", width: "100vw" }} src="../public/simon/index.html" />} />
           </Route>
         </Routes>
       </BrowserRouter>
